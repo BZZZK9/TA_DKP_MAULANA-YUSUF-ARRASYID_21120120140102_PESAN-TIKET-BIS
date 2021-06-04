@@ -391,7 +391,7 @@
               </grid>
             </constraints>
             <properties>
-              <background color="-1"/>
+              <background color="-4665371"/>
               <editable value="false"/>
               <font name="Cambria Math" size="40" style="1"/>
               <foreground color="-976618"/>
@@ -455,7 +455,7 @@
               </grid>
             </constraints>
             <properties>
-              <background color="-1"/>
+              <background color="-4665371"/>
               <editable value="false"/>
               <font name="Cambria Math" size="40" style="1"/>
               <foreground color="-976618"/>
