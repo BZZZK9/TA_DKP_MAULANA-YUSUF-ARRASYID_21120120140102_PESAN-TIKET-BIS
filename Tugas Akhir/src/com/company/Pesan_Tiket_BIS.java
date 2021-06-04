@@ -399,9 +399,6 @@ public class Pesan_Tiket_BIS {
     }
 
 
-
-
-
     public static void main(String[] args) {
         JFrame frame = new JFrame("Pesan Tiket BIS");
         frame.setContentPane(new Pesan_Tiket_BIS().panel1);
