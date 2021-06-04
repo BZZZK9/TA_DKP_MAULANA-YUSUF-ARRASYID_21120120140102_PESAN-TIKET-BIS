@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.company.Pesan_Tiket_BIS">
+  <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="2276" height="1012"/>
+    </constraints>
+    <properties>
+      <autoscrolls value="true"/>
+      <background color="-16756037"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <grid id="11913" default-binding="true" layout-manager="GridLayoutManager" row-count="22" column-count="15" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-16756037"/>
+          <foreground color="-1"/>
+          <visible value="true"/>
+        </properties>
+        <clientProperties>
+          <html.disable class="java.lang.Boolean" value="false"/>
+        </clientProperties>
+        <border type="none"/>
+        <children>
+          <component id="c64bd" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Geometr212 BkCn BT" size="40" style="1"/>
+              <foreground color="-1"/>
+              <text value="TUJUAN"/>
+            </properties>
+          </component>
+          <component id="3cb15" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Geometr212 BkCn BT" size="40" style="1"/>
+              <foreground color="-1"/>
+              <text value="JUMLAH"/>
+            </properties>
+          </component>
+          <component id="2f8ad" class="javax.swing.JComboBox" binding="cbTujuan">
+            <constraints>
+              <grid row="6" column="3" row-span="1" col-span="6" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-1"/>
+              <font size="40"/>
+              <foreground color="-16777216"/>
+              <model>
+                <item value="-PILIH-"/>
+                <item value="JOGJA-BEKASI"/>
+                <item value="JOGJA-JAKARTA"/>
+                <item value="JOGJA-TANGERANG"/>
+                <item value="JOGJA-BOGOR"/>
+                <item value="JOGJA-MERAK"/>
+              </model>
+            </properties>
+          </component>
+          <component id="72d74" class="javax.swing.JComboBox" binding="cbJumlah">
+            <constraints>
+              <grid row="7" column="3" row-span="1" col-span="6" vsize-policy="0" hsize-policy="2" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-1"/>
+              <enabled value="true"/>
+              <font size="40"/>
+              <foreground color="-16777216"/>
+              <model>
+                <item value="1"/>
+                <item value="2"/>
+                <item value="3"/>
+                <item value="4"/>
+              </model>
+            </properties>
+          </component>
+          <component id="aa2e7" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="6" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Geometr212 BkCn BT" size="40" style="1"/>
+              <foreground color="-1"/>
+              <text value="PILIH TANGGAL"/>
+            </properties>
+          </component>
+          <vspacer id="9e7ec">
+            <constraints>
+              <grid row="4" column="3" row-span="1" col-span="6" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <vspacer id="15bb7">
+            <constraints>
+              <grid row="1" column="3" row-span="1" col-span="6" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <component id="d4c51" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="2" column="3" row-span="1" col-span="7" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Fira Code Medium" size="72" style="1"/>
+              <foreground color="-1"/>
+              <text value="PESAN TIKET BIS"/>
+            </properties>
+          </component>
+          <hspacer id="e10c1">
+            <constraints>
+              <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <hspacer id="570c3">
+            <constraints>
+              <grid row="6" column="14" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <component id="37eab" class="javax.swing.JButton" binding="BATALButton" default-binding="true">
+            <constraints>
+              <grid row="16" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-1"/>
+              <font name="Arial Rounded MT Bold" size="35" style="1"/>
+              <foreground color="-16777216"/>
+              <text value="BATAL"/>
+            </properties>
+          </component>
+          <vspacer id="31560">
+            <constraints>
+              <grid row="0" column="7" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <vspacer id="8a3b">
+            <constraints>
+              <grid row="20" column="7" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <vspacer id="11991">
+            <constraints>
+              <grid row="21" column="7" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <component id="f8121" class="javax.swing.JButton" binding="PESANButton" default-binding="true">
+            <constraints>
+              <grid row="16" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-1"/>
+              <enabled value="true"/>
+              <font name="Arial Rounded MT Bold" size="35" style="1"/>
+              <foreground color="-16777216"/>
+              <text value="PESAN"/>
+            </properties>
+          </component>
+          <vspacer id="77db">
+            <constraints>
+              <grid row="3" column="4" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <vspacer id="f29c3">
+            <constraints>
+              <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <component id="75814" class="javax.swing.JComboBox" binding="cbBulan">
+            <constraints>
+              <grid row="6" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-1"/>
+              <font size="40"/>
+              <foreground color="-16777216"/>
+              <model>
+                <item value="-BULAN-"/>
+                <item value="MEI"/>
+                <item value="JUNI"/>
+                <item value="JULI"/>
+                <item value="AGUSTUS"/>
+              </model>
+            </properties>
+          </component>
+          <component id="fa516" class="javax.swing.JComboBox" binding="cbTanggal">
+            <constraints>
+              <grid row="6" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-1"/>
+              <font size="40"/>
+              <foreground color="-16777216"/>
+              <model>
+                <item value="-HARI-"/>
+              </model>
+            </properties>
+          </component>
+          <scrollpane id="9079d">
+            <constraints>
+              <grid row="8" column="9" row-span="11" col-span="2" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <minimum-size width="450" height="500"/>
+                <preferred-size width="450" height="500"/>
+                <maximum-size width="-1" height="500"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-1"/>
+              <foreground color="-16777216"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="f030" class="javax.swing.JTextArea" binding="taTiket">
+                <constraints/>
+                <properties>
+                  <background color="-1"/>
+                  <editable value="false"/>
+                  <font name="Franklin Gothic Demi" size="16"/>
+                </properties>
+                <clientProperties>
+                  <html.disable class="java.lang.Boolean" value="false"/>
+                </clientProperties>
+              </component>
+            </children>
+          </scrollpane>
+          <component id="a5d2e" class="javax.swing.JButton" binding="PRINTButton" default-binding="true">
+            <constraints>
+              <grid row="19" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-1"/>
+              <enabled value="false"/>
+              <font name="Arial Rounded MT Bold" size="30" style="1"/>
+              <foreground color="-16777216"/>
+              <hideActionText value="false"/>
+              <text value="CETAK TIKET"/>
+            </properties>
+          </component>
+          <component id="5d167" class="javax.swing.JButton" binding="RESETButton" default-binding="true">
+            <constraints>
+              <grid row="19" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-1"/>
+              <enabled value="false"/>
+              <font name="Arial Rounded MT Bold" size="35" style="1"/>
+              <foreground color="-16777216"/>
+              <text value="RESET"/>
+            </properties>
+          </component>
+          <component id="df427" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="7" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Geometr212 BkCn BT" size="40" style="1"/>
+              <foreground color="-1"/>
+              <text value="JAM KEBERANGKATAN"/>
+            </properties>
+          </component>
+          <component id="54add" class="javax.swing.JLabel" binding="jlNP1">
+            <constraints>
+              <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <enabled value="true"/>
+              <font name="Geometr212 BkCn BT" size="40" style="1"/>
+              <foreground color="-1"/>
+              <text value="NAMA PENUMPANG"/>
+            </properties>
+          </component>
+          <component id="d4ad1" class="javax.swing.JLabel" binding="jlNP2">
+            <constraints>
+              <grid row="9" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <enabled value="false"/>
+              <font name="Geometr212 BkCn BT" size="40" style="1"/>
+              <foreground color="-1"/>
+              <text value="NAMA PENUMPANG 2"/>
+              <visible value="false"/>
+            </properties>
+          </component>
+          <component id="12739" class="javax.swing.JLabel" binding="jlNP3">
+            <constraints>
+              <grid row="10" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <enabled value="false"/>
+              <font name="Geometr212 BkCn BT" size="40" style="1"/>
+              <foreground color="-1"/>
+              <text value="NAMA PENUMPANG 3"/>
+              <visible value="false"/>
+            </properties>
+          </component>
+          <component id="d4501" class="javax.swing.JLabel" binding="jlNP4">
+            <constraints>
+              <grid row="11" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <enabled value="false"/>
+              <font name="Geometr212 BkCn BT" size="40" style="1"/>
+              <foreground color="-1"/>
+              <text value="NAMA PENUMPANG 4"/>
+              <visible value="false"/>
+            </properties>
+          </component>
+          <component id="65905" class="javax.swing.JTextField" binding="tfNama1">
+            <constraints>
+              <grid row="8" column="3" row-span="1" col-span="6" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                <minimum-size width="425" height="-1"/>
+                <preferred-size width="425" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-1"/>
+              <editable value="true"/>
+              <enabled value="true"/>
+              <font size="40"/>
+              <foreground color="-16777216"/>
+            </properties>
+          </component>
+          <component id="5bfa2" class="javax.swing.JTextField" binding="tfNama2">
+            <constraints>
+              <grid row="9" column="3" row-span="1" col-span="6" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                <minimum-size width="425" height="-1"/>
+                <preferred-size width="425" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-1"/>
+              <disabledTextColor color="-4665371"/>
+              <doubleBuffered value="false"/>
+              <editable value="true"/>
+              <enabled value="false"/>
+              <font size="40"/>
+              <foreground color="-16777216"/>
+              <visible value="false"/>
+            </properties>
+          </component>
+          <component id="16302" class="javax.swing.JTextField" binding="tfNama3">
+            <constraints>
+              <grid row="10" column="3" row-span="1" col-span="6" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                <minimum-size width="425" height="-1"/>
+                <preferred-size width="425" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-1"/>
+              <editable value="true"/>
+              <enabled value="false"/>
+              <font size="40"/>
+              <foreground color="-16777216"/>
+              <visible value="false"/>
+            </properties>
+          </component>
+          <component id="b857c" class="javax.swing.JTextField" binding="tfNama4">
+            <constraints>
+              <grid row="11" column="3" row-span="1" col-span="6" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                <minimum-size width="425" height="-1"/>
+                <preferred-size width="425" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-1"/>
+              <editable value="true"/>
+              <enabled value="false"/>
+              <font size="40"/>
+              <foreground color="-16777216"/>
+              <visible value="false"/>
+            </properties>
+          </component>
+          <component id="28c39" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="13" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Geometr212 BkCn BT" size="40" style="1"/>
+              <foreground color="-1"/>
+              <text value="TOTAL HARGA"/>
+            </properties>
+          </component>
+          <component id="dab9" class="javax.swing.JTextField" binding="tfHarga">
+            <constraints>
+              <grid row="13" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                <minimum-size width="250" height="-1"/>
+                <preferred-size width="250" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-1"/>
+              <editable value="false"/>
+              <font name="Cambria Math" size="40" style="1"/>
+              <foreground color="-976618"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="2d329" class="javax.swing.JTextField" binding="tfJam">
+            <constraints>
+              <grid row="7" column="10" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                <minimum-size width="200" height="-1"/>
+                <preferred-size width="200" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-1"/>
+              <editable value="false"/>
+              <font name="Cambria Math" size="40" style="1"/>
+              <foreground color="-16777216"/>
+            </properties>
+          </component>
+          <component id="b9a77" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="14" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Geometr212 BkCn BT" size="40" style="1"/>
+              <foreground color="-1"/>
+              <text value="BAYAR"/>
+            </properties>
+          </component>
+          <component id="d6ee9" class="javax.swing.JTextField" binding="tfBayar">
+            <constraints>
+              <grid row="14" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                <minimum-size width="250" height="-1"/>
+                <preferred-size width="250" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-1"/>
+              <editable value="true"/>
+              <font name="Cambria Math" size="40" style="1"/>
+              <foreground color="-976618"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="29766" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="15" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Geometr212 BkCn BT" size="40" style="1"/>
+              <foreground color="-1"/>
+              <text value="KEMBALI"/>
+            </properties>
+          </component>
+          <component id="36c1c" class="javax.swing.JTextField" binding="tfKembali">
+            <constraints>
+              <grid row="15" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                <minimum-size width="250" height="-1"/>
+                <preferred-size width="250" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-1"/>
+              <editable value="false"/>
+              <font name="Cambria Math" size="40" style="1"/>
+              <foreground color="-976618"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="94846" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="13" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Cambria Math" size="36"/>
+              <foreground color="-976618"/>
+              <text value="Rp."/>
+            </properties>
+          </component>
+          <component id="fdded" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="14" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Cambria Math" size="36"/>
+              <foreground color="-976618"/>
+              <text value="Rp."/>
+            </properties>
+          </component>
+          <component id="cec2b" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="15" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Cambria Math" size="36"/>
+              <foreground color="-976618"/>
+              <text value="Rp."/>
+            </properties>
+          </component>
+          <vspacer id="d0b32">
+            <constraints>
+              <grid row="12" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>
