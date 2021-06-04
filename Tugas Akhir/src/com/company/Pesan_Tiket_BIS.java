@@ -33,6 +33,8 @@ public class Pesan_Tiket_BIS {
     private JLabel jlNP2;
     private JLabel jlNP1;
     private JButton PRINTButton;
+    private JTextField tfBayar;
+    private JTextField tfKembali;
 
 
     public Pesan_Tiket_BIS() {
@@ -150,6 +152,7 @@ public class Pesan_Tiket_BIS {
                 String tanggal = cbTanggal.getSelectedItem().toString();
                 String bulan = cbBulan.getSelectedItem().toString();
                 Integer harga = getHargaByTujuan(tujuan);
+                Integer tharga = harga*jumlah;
                 String jam = getJamByTujuan(tujuan);
                 boolean cek0 = false;
                 boolean cek1 = false;
@@ -157,9 +160,25 @@ public class Pesan_Tiket_BIS {
                 boolean cek3 = true;
                 boolean cek4 = true;
                 boolean cek5 = true;
+                boolean cek6 = false;
                 Integer x = 0, y=0, z=0;
 
+ //Uang
+                if(tfBayar.getText().matches(".*\\D.*")){
+                    JOptionPane.showMessageDialog(panel1,"Masukan Hanya Berupa Angka\n(BAYAR)", "BAYAR", JOptionPane.WARNING_MESSAGE);
+                } else {
+                    Integer bayar = Integer.parseInt(tfBayar.getText());
+                    Integer kembali = bayar-tharga;
+                    if(kembali<0){
+                        JOptionPane.showMessageDialog(panel1,"Uang Yang Anda Masukan Kurang\n(BAYAR)", "BAYAR", JOptionPane.WARNING_MESSAGE);
+                    } else{
+                        tfKembali.setText(kembali.toString());
+                        cek6=true;
+                    }
+                }
 
+
+//ambil nama
                 Queue<String> nama_Penumpang = new LinkedList<>();
                 nama_Penumpang.add(tfNama1.getText());
                 nama_Penumpang.add(tfNama2.getText());
@@ -183,7 +202,7 @@ public class Pesan_Tiket_BIS {
 
 //cek1. Cek TUJUAN
                 if (tujuan=="-PILIH-") {
-                    JOptionPane.showMessageDialog(panel1, "ANDA BELUM MEMILIH TUJUAN", "PERINGATAN !", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(panel1, "ANDA BELUM MEMILIH TUJUAN", "PERINGATAN !", JOptionPane.WARNING_MESSAGE);
                     cek1=false;
                 }else {
                     cek1=true;
@@ -191,7 +210,7 @@ public class Pesan_Tiket_BIS {
 
 //cek2. Cek TANGGAL
                 if (tanggal == "-PILIH-" || bulan =="-BULAN-") {
-                    JOptionPane.showMessageDialog(panel1, "ANDA BELUM MEMILIH TANGGAL", "PERINGATAN !", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(panel1, "ANDA BELUM MEMILIH TANGGAL", "PERINGATAN !", JOptionPane.WARNING_MESSAGE);
                     cek2=false;
                 } else {
                     cek2=true;
@@ -234,7 +253,7 @@ public class Pesan_Tiket_BIS {
 
 
 
-                if(cek0==true && cek1==true && cek2==true && cek3==true &&cek4 ==true && cek5==true){
+                if(cek0==true && cek1==true && cek2==true && cek3==true &&cek4 ==true && cek5==true && cek6==true){
                     taTiket.append("\t\tTIKET PENUMPANG\n\n" +
                             "Tujuan\t: " + tujuan +"\n"+
                             "Tanggal\t: "+ tanggal+ bulan +"\n"+
@@ -251,7 +270,7 @@ public class Pesan_Tiket_BIS {
                 }
 
 
-                if(cek0==true && cek1==true && cek2==true && cek3==true && cek4==true && cek5==true) {
+                if(cek0==true && cek1==true && cek2==true && cek3==true && cek4==true && cek5==true && cek6==true) {
                     cbTujuan.setEnabled(false);
                     cbJumlah.setEnabled(false);
                     cbTanggal.setEnabled(false);
@@ -262,6 +281,8 @@ public class Pesan_Tiket_BIS {
                     tfNama2.setEnabled(false);
                     tfNama3.setEnabled(false);
                     tfNama4.setEnabled(false);
+                    tfBayar.setEnabled(false);
+                    tfKembali.setEnabled(false);
                     BATALButton.setEnabled(false);
                     PESANButton.setEnabled(false);
                     PRINTButton.setEnabled(true);
@@ -309,6 +330,8 @@ public class Pesan_Tiket_BIS {
                 tfNama4.setText("");
                 tfNama4.setEditable(false);
                 tfHarga.setText("");
+                tfBayar.setText("");
+                tfKembali.setText("");
                 cbJumlah.setSelectedItem("1");
                 cbTujuan.setSelectedItem("-PILIH-");
                 cbTanggal.setSelectedItem("-HARI-");
@@ -351,6 +374,10 @@ public class Pesan_Tiket_BIS {
                 jlNP2.setEnabled(false);
                 jlNP3.setEnabled(false);
                 jlNP4.setEnabled(false);
+                tfBayar.setEnabled(true);
+                tfBayar.setText("");
+                tfKembali.setEnabled(true);
+                tfKembali.setText("");
                 RESETButton.setEnabled(false);
                 PRINTButton.setEnabled(false);
             }
