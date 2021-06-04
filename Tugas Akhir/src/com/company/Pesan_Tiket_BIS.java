@@ -257,7 +257,7 @@ public class Pesan_Tiket_BIS {
                     tfKembali.setText(String.valueOf(kembali));
                     taTiket.append("\t\tTIKET PENUMPANG\n\n" +
                             "Tujuan\t: " + tujuan +"\n"+
-                            "Tanggal\t: "+ tanggal+ bulan +"\n"+
+                            "Tanggal\t: "+ tanggal+ " " + bulan +"\n"+
                             "Jam\t: "+jam+"\n"+
                             "Tarif\t: Rp."+harga+"/orang\n" +
                             "Total\t: Rp."+(harga*jumlah)+"\n" +
