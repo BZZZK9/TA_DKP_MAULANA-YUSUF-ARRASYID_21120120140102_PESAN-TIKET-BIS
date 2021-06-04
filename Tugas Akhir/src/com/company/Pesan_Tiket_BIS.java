@@ -23,7 +23,6 @@ public class Pesan_Tiket_BIS {
     private JTextField tfNama3;
     private JTextField tfNama4;
     private JButton BATALButton;
-    private JTextArea taInfo;
     private JTextArea taTiket;
     private JTextField tfJam;
     private JButton PESANButton;
@@ -45,7 +44,6 @@ public class Pesan_Tiket_BIS {
             public void actionPerformed(ActionEvent e) {
                 String tujuan = cbTujuan.getSelectedItem().toString();
                 Integer jumlah= Integer.parseInt(cbJumlah.getSelectedItem().toString());
-                String tanggal = cbTanggal.getSelectedItem().toString();
                 Integer harga = getHargaByTujuan(tujuan);
                 String jam = getJamByTujuan(tujuan);
                 Integer tharga = harga*jumlah;
@@ -153,6 +151,7 @@ public class Pesan_Tiket_BIS {
                 String bulan = cbBulan.getSelectedItem().toString();
                 Integer harga = getHargaByTujuan(tujuan);
                 Integer tharga = harga*jumlah;
+                int kembali = 0;
                 String jam = getJamByTujuan(tujuan);
                 boolean cek0 = false;
                 boolean cek1 = false;
@@ -161,7 +160,7 @@ public class Pesan_Tiket_BIS {
                 boolean cek4 = true;
                 boolean cek5 = true;
                 boolean cek6 = false;
-                Integer x = 0, y=0, z=0;
+                int x = 0, y=0, z=0;
 
  //Uang
                 if (tfBayar.getText().isEmpty()){
@@ -171,11 +170,10 @@ public class Pesan_Tiket_BIS {
                         JOptionPane.showMessageDialog(panel1, "Masukan Hanya Berupa Angka\n(BAYAR)", "BAYAR", JOptionPane.WARNING_MESSAGE);
                     } else {
                         Integer bayar = Integer.parseInt(tfBayar.getText());
-                        Integer kembali = bayar - tharga;
+                        kembali = bayar - tharga;
                         if (kembali < 0) {
                             JOptionPane.showMessageDialog(panel1, "Uang Yang Anda Masukan Kurang\n(BAYAR)", "BAYAR", JOptionPane.WARNING_MESSAGE);
                         } else {
-                            tfKembali.setText(kembali.toString());
                             cek6 = true;
                         }
                     }
@@ -190,7 +188,7 @@ public class Pesan_Tiket_BIS {
                 nama_Penumpang.add(tfNama4.getText());
 
 
-                String nama[] = new String[jumlah];
+                String nama[] = new String[4];
                 for(int i=0; i<jumlah; i++){
                     nama[i]= nama_Penumpang.remove();
                 }
@@ -205,17 +203,15 @@ public class Pesan_Tiket_BIS {
                 }
 
 //cek1. Cek TUJUAN
-                if (tujuan=="-PILIH-") {
+                if (tujuan.equals("-PILIH-")) {
                     JOptionPane.showMessageDialog(panel1, "ANDA BELUM MEMILIH TUJUAN", "PERINGATAN !", JOptionPane.WARNING_MESSAGE);
-                    cek1=false;
                 }else {
                     cek1=true;
                 }
 
 //cek2. Cek TANGGAL
-                if (tanggal == "-PILIH-" || bulan =="-BULAN-") {
+                if (tanggal.equals("-PILIH-")  || bulan.equals("-BULAN-")) {
                     JOptionPane.showMessageDialog(panel1, "ANDA BELUM MEMILIH TANGGAL", "PERINGATAN !", JOptionPane.WARNING_MESSAGE);
-                    cek2=false;
                 } else {
                     cek2=true;
                 }
@@ -257,7 +253,8 @@ public class Pesan_Tiket_BIS {
 
 
 
-                if(cek0==true && cek1==true && cek2==true && cek3==true &&cek4 ==true && cek5==true && cek6==true){
+                if(cek0 && cek1 && cek2 && cek3 && cek4 && cek5 && cek6){
+                    tfKembali.setText(String.valueOf(kembali));
                     taTiket.append("\t\tTIKET PENUMPANG\n\n" +
                             "Tujuan\t: " + tujuan +"\n"+
                             "Tanggal\t: "+ tanggal+ bulan +"\n"+
@@ -274,19 +271,17 @@ public class Pesan_Tiket_BIS {
                 }
 
 
-                if(cek0==true && cek1==true && cek2==true && cek3==true && cek4==true && cek5==true && cek6==true) {
+                if(cek0 && cek1 && cek2 && cek3 && cek4 && cek5 && cek6) {
                     cbTujuan.setEnabled(false);
                     cbJumlah.setEnabled(false);
                     cbTanggal.setEnabled(false);
                     cbBulan.setEnabled(false);
                     tfJam.setEnabled(false);
-                    tfHarga.setEnabled(false);
                     tfNama1.setEnabled(false);
                     tfNama2.setEnabled(false);
                     tfNama3.setEnabled(false);
                     tfNama4.setEnabled(false);
                     tfBayar.setEnabled(false);
-                    tfKembali.setEnabled(false);
                     BATALButton.setEnabled(false);
                     PESANButton.setEnabled(false);
                     PRINTButton.setEnabled(true);
@@ -301,25 +296,21 @@ public class Pesan_Tiket_BIS {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int t =1;
-                if(cbBulan.getSelectedItem().toString() == "JUNI") {
+                if (cbBulan.getSelectedItem().toString().equals("-BULAN-")){
+                    cbTanggal.removeAllItems();
+                    cbTanggal.addItem("-HARI-");
+                } else if (cbBulan.getSelectedItem().toString().equals("JUNI")){
                     cbTanggal.removeAllItems();
                     for (t=1; t<31; t++){
                         cbTanggal.addItem(t);
                     }
-                }else {
-                    if (cbBulan.getSelectedItem().toString() != "-BULAN-") {
-                        cbTanggal.removeAllItems();
-                        while (t <= 31) {
-                            cbTanggal.addItem(t);
-                            t++;
-                        }
+                } else {
+                    cbTanggal.removeAllItems();
+                    for (t=1; t<=31; t++){
+                        cbTanggal.addItem(t);
                     }
                 }
 
-                if(cbBulan.getSelectedItem().toString()=="-BULAN-"){
-                    cbTanggal.removeAllItems();
-                    cbTanggal.addItem("-HARI-");
-                }
             }
         });
 
@@ -362,7 +353,6 @@ public class Pesan_Tiket_BIS {
                 tfJam.setText("");
                 tfJam.setEnabled(true);
                 tfHarga.setText("");
-                tfHarga.setEnabled(true);
                 tfNama1.setText("");
                 tfNama1.setEnabled(true);
                 tfNama2.setText("");
@@ -380,7 +370,6 @@ public class Pesan_Tiket_BIS {
                 jlNP4.setEnabled(false);
                 tfBayar.setEnabled(true);
                 tfBayar.setText("");
-                tfKembali.setEnabled(true);
                 tfKembali.setText("");
                 RESETButton.setEnabled(false);
                 PRINTButton.setEnabled(false);
@@ -401,32 +390,32 @@ public class Pesan_Tiket_BIS {
 
     }
     public int getHargaByTujuan(String tujuan){
-        if(tujuan=="JOGJA-BEKASI"){
+        if(tujuan.equals("JOGJA-BEKASI")){
             return 150000;
-        }else if (tujuan =="JOGJA-JAKARTA") {
+        }else if (tujuan.equals("JOGJA-JAKARTA")) {
             return 180000;
-        }else if (tujuan == "JOGJA-TANGERANG"){
+        }else if (tujuan.equals("JOGJA-TANGERANG")){
             return 190000;
-        }else if (tujuan =="JOGJA-BOGOR"){
+        }else if (tujuan.equals("JOGJA-BOGOR")){
             return 190000;
-        }else if (tujuan == "JOGJA-MERAK"){
+        }else if (tujuan.equals("JOGJA-MERAK")){
             return 245000;
         }
         return 0;
     }
     public String getJamByTujuan(String tujuan){
-        if(tujuan=="JOGJA-BEKASI"){
+        if(tujuan.equals("JOGJA-BEKASI")){
             return  "16.30 WIB";
-        }else if (tujuan =="JOGJA-JAKARTA") {
+        }else if (tujuan.equals("JOGJA-JAKARTA")) {
             return  "15.30 WIB";
-        }else if (tujuan == "JOGJA-TANGERANG"){
+        }else if (tujuan.equals("JOGJA-TANGERANG")){
            return   "15.00 WIB";
-        }else if (tujuan =="JOGJA-BOGOR"){
+        }else if (tujuan.equals("JOGJA-BOGOR")){
             return  "15.30 WIB";
-        }else if (tujuan == "JOGJA-MERAK"){
+        }else if (tujuan.equals("JOGJA-MERAK")){
             return  "13.00 WIB";
-        }
-        return "";
+        }else {return "";}
+
     }
 
 

@@ -395,6 +395,7 @@
               <editable value="false"/>
               <font name="Cambria Math" size="40" style="1"/>
               <foreground color="-976618"/>
+              <selectedTextColor color="-976618"/>
               <text value=""/>
             </properties>
           </component>
