@@ -3,6 +3,8 @@ package com.company;
 import jdk.internal.org.objectweb.asm.tree.analysis.Value;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.*;
 import java.awt.print.PrinterException;
 import java.util.LinkedList;
@@ -155,6 +157,8 @@ public class Pesan_Tiket_BIS {
                 boolean cek3 = true;
                 boolean cek4 = true;
                 boolean cek5 = true;
+                Integer x = 0, y=0, z=0;
+
 
                 Queue<String> nama_Penumpang = new LinkedList<>();
                 nama_Penumpang.add(tfNama1.getText());
@@ -165,10 +169,10 @@ public class Pesan_Tiket_BIS {
 
                 String nama[] = new String[jumlah];
                 for(int i=0; i<jumlah; i++){
-                    nama[i]=nama_Penumpang.remove();
+                    nama[i]= nama_Penumpang.remove();
                 }
 
-
+//cek0. NAMA TIDAK BOLEH MEMUAT ANGKA ATAU SIMBO
                 if(tfNama1.getText().matches(".*[^a-z&&[^A-Z&&[\\S]]].*") || tfNama2.getText().matches(".*[^a-z&&[^A-Z&&[\\S]]].*") || tfNama3.getText().matches(".*[^a-z&&[^A-Z&&[\\S]]].*") || tfNama4.getText().matches(".*[^a-z&&[^A-Z&&[\\S]]].*")) {
                     cek0=false;
                     JOptionPane.showMessageDialog(panel1, "NAMA TIDAK BOLEH MEMUAT ANGKA ATAU SIMBOL", "PERHATIAN !", JOptionPane.INFORMATION_MESSAGE);
@@ -176,69 +180,58 @@ public class Pesan_Tiket_BIS {
                     cek0=true;
 
                 }
+
+//cek1. Cek TUJUAN
                 if (tujuan=="-PILIH-") {
                     JOptionPane.showMessageDialog(panel1, "ANDA BELUM MEMILIH TUJUAN", "PERINGATAN !", JOptionPane.INFORMATION_MESSAGE);
                     cek1=false;
                 }else {
                     cek1=true;
                 }
+
+//cek2. Cek TANGGAL
                 if (tanggal == "-PILIH-" || bulan =="-BULAN-") {
                     JOptionPane.showMessageDialog(panel1, "ANDA BELUM MEMILIH TANGGAL", "PERINGATAN !", JOptionPane.INFORMATION_MESSAGE);
                     cek2=false;
                 } else {
                     cek2=true;
                 }
-                switch (jumlah){
-                    case 1 : if(nama[0].isEmpty()){
-                        cek3=false;
-                        JOptionPane.showMessageDialog(panel1, "NAMA TIDAK BOLEH KOSONG", "PERHATIAN !", JOptionPane.INFORMATION_MESSAGE);
+
+//cek3. Nama harus di isi
+                for(int a=0; a<jumlah; a++){
+                    if(nama[a].isEmpty()){
+                        x=x+1;
                     }
-                    break;
-                    case 2 : if(nama[0].isEmpty() || nama[1].isEmpty()){
-                        cek3=false;
-                        JOptionPane.showMessageDialog(panel1, "NAMA TIDAK BOLEH KOSONG", "PERHATIAN !", JOptionPane.INFORMATION_MESSAGE);
-                    }
-                    break;
-                    case 3 : if(nama[0].isEmpty() || nama[1].isEmpty() || nama[2].isEmpty()){
-                        cek3=false;
-                        JOptionPane.showMessageDialog(panel1, "NAMA TIDAK BOLEH KOSONG", "PERHATIAN !", JOptionPane.INFORMATION_MESSAGE);
-                    }
-                        break;
-                    case 4 : if(nama[0].isEmpty() || nama[1].isEmpty() || nama[2].isEmpty() || nama[3].isEmpty()){
-                        cek3=false;
-                        JOptionPane.showMessageDialog(panel1, "NAMA TIDAK BOLEH KOSONG", "PERHATIAN !", JOptionPane.INFORMATION_MESSAGE);
-                    }
-                        break;
-                    default:
-                }
-                switch (jumlah){
-                    case 1 : if (tfNama1.getText().matches("^[\\s].*") || tfNama1.getText().matches(".*[\\s]$")){
-                        JOptionPane.showMessageDialog(panel1, "NAMA TIDAK BOLEH DIAWALI ATAU DIAKHIRI SPASI","PERHATIAN !", JOptionPane.INFORMATION_MESSAGE);
-                        cek4=false;
-                    }
-                    break;
-                    case 2 : if (tfNama1.getText().matches("^[\\s].*") || tfNama1.getText().matches(".*[\\s]$") || tfNama2.getText().matches("^[\\s].*") || tfNama2.getText().matches(".*[\\s]$")){
-                        JOptionPane.showMessageDialog(panel1, "NAMA TIDAK BOLEH DIAWALI ATAU DIAKHIRI SPASI","PERHATIAN !", JOptionPane.INFORMATION_MESSAGE);
-                        cek4=false;
-                    }
-                    break;
-                    case 3 : if (tfNama1.getText().matches("^[\\s].*") || tfNama1.getText().matches(".*[\\s]$") || tfNama2.getText().matches("^[\\s].*") || tfNama2.getText().matches(".*[\\s]$") || tfNama3.getText().matches("^[\\s].*") || tfNama3.getText().matches(".*[\\s]$") ){
-                        JOptionPane.showMessageDialog(panel1, "NAMA TIDAK BOLEH DIAWALI ATAU DIAKHIRI SPASI","PERHATIAN !", JOptionPane.INFORMATION_MESSAGE);
-                        cek4=false;
-                    }
-                    break;
-                    case 4 : if (tfNama1.getText().matches("^[\\s].*") || tfNama1.getText().matches(".*[\\s]$") || tfNama2.getText().matches("^[\\s].*") || tfNama2.getText().matches(".*[\\s]$") || tfNama3.getText().matches("^[\\s].*") || tfNama3.getText().matches(".*[\\s]$") || tfNama4.getText().matches("^[\\s].*") || tfNama4.getText().matches(".*[\\s]$") ){
-                        JOptionPane.showMessageDialog(panel1, "NAMA TIDAK BOLEH DIAWALI ATAU DIAKHIRI SPASI","PERHATIAN !", JOptionPane.INFORMATION_MESSAGE);
-                        cek4=false;
-                    }
-                    break;
-                    default:
                 }
 
-                if(nama[0].length()>18 || nama[1].length()>18 || nama[2].length()>18 || nama[3].length()>18) {
-                    JOptionPane.showMessageDialog(panel1, "Nama tidak lebih dari 18 huruf dan spasi, silahkan menyingkatnya", "NAMA", JOptionPane.INFORMATION_MESSAGE);
+                if(x>0){
+                    cek3=false;
+                    JOptionPane.showMessageDialog(panel1, "NAMA TIDAK BOLEH KOSONG", "PERHATIAN !", JOptionPane.INFORMATION_MESSAGE);
+                }
+
+// cek4. Nama tidak boleh diawali/diakhiri/seluruhnya spasi
+                for(int a=0; a<jumlah; a++){
+                    if(nama[a].matches("^[\\s].*") || nama[a].matches(".*[\\s]$")) {
+                        y=y+1;
+                    }
+                }
+                if(y>0){
+                    JOptionPane.showMessageDialog(panel1, "NAMA TIDAK BOLEH DIAWALI ATAU DIAKHIRI SPASI","PERHATIAN !", JOptionPane.INFORMATION_MESSAGE);
+                    cek4=false;
+                }
+
+
+//cek5. jumlah karakter maks.18
+                for(int a=0; a<jumlah; a++){
+                    if(nama[a].length()>18){
+                        z=z+1;
+                    }
+                }
+                if(z>0) {
+                    JOptionPane.showMessageDialog(panel1,"Panjang maksimal NAMA 18 karakter, silahkan menyingkatnya", "NAMA", JOptionPane.INFORMATION_MESSAGE);
                     cek5=false;
                 }
+
 
 
                 if(cek0==true && cek1==true && cek2==true && cek3==true &&cek4 ==true && cek5==true){
