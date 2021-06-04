@@ -164,16 +164,20 @@ public class Pesan_Tiket_BIS {
                 Integer x = 0, y=0, z=0;
 
  //Uang
-                if(tfBayar.getText().matches(".*\\D.*")){
-                    JOptionPane.showMessageDialog(panel1,"Masukan Hanya Berupa Angka\n(BAYAR)", "BAYAR", JOptionPane.WARNING_MESSAGE);
-                } else {
-                    Integer bayar = Integer.parseInt(tfBayar.getText());
-                    Integer kembali = bayar-tharga;
-                    if(kembali<0){
-                        JOptionPane.showMessageDialog(panel1,"Uang Yang Anda Masukan Kurang\n(BAYAR)", "BAYAR", JOptionPane.WARNING_MESSAGE);
-                    } else{
-                        tfKembali.setText(kembali.toString());
-                        cek6=true;
+                if (tfBayar.getText().isEmpty()){
+                    JOptionPane.showMessageDialog(panel1, "Anda Belum Memasukan Nominal Pembayaran", "BAYAR", JOptionPane.WARNING_MESSAGE);
+                } else{
+                    if (tfBayar.getText().matches(".*\\D.*")) {
+                        JOptionPane.showMessageDialog(panel1, "Masukan Hanya Berupa Angka\n(BAYAR)", "BAYAR", JOptionPane.WARNING_MESSAGE);
+                    } else {
+                        Integer bayar = Integer.parseInt(tfBayar.getText());
+                        Integer kembali = bayar - tharga;
+                        if (kembali < 0) {
+                            JOptionPane.showMessageDialog(panel1, "Uang Yang Anda Masukan Kurang\n(BAYAR)", "BAYAR", JOptionPane.WARNING_MESSAGE);
+                        } else {
+                            tfKembali.setText(kembali.toString());
+                            cek6 = true;
+                        }
                     }
                 }
 
@@ -191,10 +195,10 @@ public class Pesan_Tiket_BIS {
                     nama[i]= nama_Penumpang.remove();
                 }
 
-//cek0. NAMA TIDAK BOLEH MEMUAT ANGKA ATAU SIMBO
+//cek0. NAMA TIDAK BOLEH MEMUAT ANGKA ATAU SIMBOL
                 if(tfNama1.getText().matches(".*[^a-z&&[^A-Z&&[\\S]]].*") || tfNama2.getText().matches(".*[^a-z&&[^A-Z&&[\\S]]].*") || tfNama3.getText().matches(".*[^a-z&&[^A-Z&&[\\S]]].*") || tfNama4.getText().matches(".*[^a-z&&[^A-Z&&[\\S]]].*")) {
                     cek0=false;
-                    JOptionPane.showMessageDialog(panel1, "NAMA TIDAK BOLEH MEMUAT ANGKA ATAU SIMBOL", "PERHATIAN !", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(panel1, "NAMA TIDAK BOLEH MEMUAT ANGKA ATAU SIMBOL", "PERHATIAN !, NAMA", JOptionPane.INFORMATION_MESSAGE);
                 }else {
                     cek0=true;
 
@@ -225,7 +229,7 @@ public class Pesan_Tiket_BIS {
 
                 if(x>0){
                     cek3=false;
-                    JOptionPane.showMessageDialog(panel1, "NAMA TIDAK BOLEH KOSONG", "PERHATIAN !", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(panel1, "NAMA TIDAK BOLEH KOSONG", "PERHATIAN !, NAMA", JOptionPane.INFORMATION_MESSAGE);
                 }
 
 // cek4. Nama tidak boleh diawali/diakhiri/seluruhnya spasi
@@ -235,7 +239,7 @@ public class Pesan_Tiket_BIS {
                     }
                 }
                 if(y>0){
-                    JOptionPane.showMessageDialog(panel1, "NAMA TIDAK BOLEH DIAWALI ATAU DIAKHIRI SPASI","PERHATIAN !", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(panel1, "NAMA TIDAK BOLEH DIAWALI ATAU DIAKHIRI SPASI","PERHATIAN !, NAMA", JOptionPane.INFORMATION_MESSAGE);
                     cek4=false;
                 }
 
@@ -247,7 +251,7 @@ public class Pesan_Tiket_BIS {
                     }
                 }
                 if(z>0) {
-                    JOptionPane.showMessageDialog(panel1,"Panjang maksimal NAMA 18 karakter, silahkan menyingkatnya", "NAMA", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(panel1,"Panjang maksimal NAMA 18 karakter, silahkan menyingkatnya", "PERHATIAN !, NAMA", JOptionPane.INFORMATION_MESSAGE);
                     cek5=false;
                 }
 
@@ -286,7 +290,7 @@ public class Pesan_Tiket_BIS {
                     BATALButton.setEnabled(false);
                     PESANButton.setEnabled(false);
                     PRINTButton.setEnabled(true);
-                    JOptionPane.showMessageDialog(panel1, "PEMESANAN BERHASIL\nPastikan tiket telah tercetak sebelum menekan tombol 'RESET'","PERHATIAN !", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(panel1, "PEMESANAN BERHASIL\nPastikan tiket telah tercetak sebelum menekan tombol 'RESET'","TRANSAKSI", JOptionPane.INFORMATION_MESSAGE);
 
                 }
 
