@@ -57,7 +57,6 @@ public class Pesan_Tiket_BIS {
             public void actionPerformed(ActionEvent e) {
                 String tujuan = cbTujuan.getSelectedItem().toString();
                 Integer jumlah= Integer.parseInt(cbJumlah.getSelectedItem().toString());
-                String tanggal = cbTanggal.getSelectedItem().toString();
                 Integer harga = getHargaByTujuan(tujuan);
                 Integer tharga = harga*jumlah;
                 tfHarga.setText(String.valueOf(tharga));
@@ -160,6 +159,8 @@ public class Pesan_Tiket_BIS {
                 boolean cek4 = true;
                 boolean cek5 = true;
                 boolean cek6 = false;
+                boolean cek7 = true;
+                int p= 0;
                 int x = 0, y=0, z=0;
 
  //Uang
@@ -251,9 +252,16 @@ public class Pesan_Tiket_BIS {
                     cek5=false;
                 }
 
+//cek7 Jumlah Penumpang
+                p=p+jumlah;
+                if(p>20){
+                    JOptionPane.showMessageDialog(null, "Kapasitas Penumpang Sudah Penuh");
+                    cek7=false;
+                }
 
 
-                if(cek0 && cek1 && cek2 && cek3 && cek4 && cek5 && cek6){
+
+                if(cek0 && cek1 && cek2 && cek3 && cek4 && cek5 && cek6 &&cek7==true){
                     tfKembali.setText(String.valueOf(kembali));
                     taTiket.append("\t\tTIKET PENUMPANG\n\n" +
                             "Tujuan\t: " + tujuan +"\n"+
@@ -266,12 +274,13 @@ public class Pesan_Tiket_BIS {
                     for (int b=0; b<jumlah; b++){
                         taTiket.append("\t"+(b+1)+". "+ nama[b].toUpperCase()+"\n"
                         );
+
                     }
 
                 }
 
 
-                if(cek0 && cek1 && cek2 && cek3 && cek4 && cek5 && cek6) {
+                if(cek0 && cek1 && cek2 && cek3 && cek4 && cek5 && cek6 &&cek7) {
                     cbTujuan.setEnabled(false);
                     cbJumlah.setEnabled(false);
                     cbTanggal.setEnabled(false);
